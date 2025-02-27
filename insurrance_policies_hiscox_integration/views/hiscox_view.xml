@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hiscox_case_form" model="ir.ui.view">
+        <field name="name">hiscox.case.form</field>
+        <field name="model">edited.hiscox.case</field>
+        <field name="arch" type="xml">
+            <form string="Hiscox Case">
+
+            <header>
+                    <button name="generate_qr_code" type="object" string="Generate QR Code" class="oe_highlight"/>
+                    <button name="submit_to_hiscox" type="object" string="Submit to Hiscox" class="oe_highlight"/>
+                    <button name="check_status_from_hiscox" type="object" string="Check Status"/>
+                    <field name="application_status" widget="statusbar" clickable="1"/>      
+                </header>
+                <sheet>
+                <field name="qr_code" widget="image" class="oe_avatar" />
+                    <group>
+                        
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                       
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail.thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hiscox_case_tree" model="ir.ui.view">
+        <field name="name">hiscox.case.tree</field>
+        <field name="model">edited.hiscox.case</field>
+        <field name="arch" type="xml">
+            <tree string="Hiscox Cases">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="application_status"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="action_hiscox_cases" model="ir.actions.act_window">
+        <field name="name">Hiscox Cases</field>
+        <field name="res_model">edited.hiscox.case</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hiscox_root"  parent="insurance_policy_main_menu" name="Hiscox" sequence="20"/>
+    <menuitem id="menu_hiscox_cases" name="Hiscox Cases" parent="menu_hiscox_root" action="action_hiscox_cases"/>
+
+    <record id="view_hiscox_configuration_form" model="ir.ui.view">
+        <field name="name">hiscox.configuration.form</field>
+        <field name="model">hiscox.configuration</field>
+        <field name="arch" type="xml">
+            <form string="Hiscox Configuration">
+                <header>
+                    <button name="check_api_connection" type="object" string="Check API Connection"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="url"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hiscox_configuration_tree" model="ir.ui.view">
+        <field name="name">hiscox.configuration.tree</field>
+        <field name="model">hiscox.configuration</field>
+        <field name="arch" type="xml">
+            <tree string="Hiscox Configurations">
+                <field name="name"/>
+                <field name="url"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hiscox_configuration" model="ir.actions.act_window">
+        <field name="name">Hiscox Configurations</field>
+        <field name="res_model">hiscox.configuration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hiscox_configuration" name="Hiscox Configurations" action="action_hiscox_configuration" parent="insurance_policy_main_menu" sequence="30"/>
+
+   
+</odoo>

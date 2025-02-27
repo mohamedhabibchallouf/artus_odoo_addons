@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_insurance_policy_form" model="ir.ui.view">
+        <field name="name">insurance.policy.form</field>
+        <field name="model">insurance.policy</field>
+        <field name="arch" type="xml">
+            <form string="Insurance Policy">
+                <header>
+                    <button name="action_cancel" string="Cancel" attrs="{'invisible': [('state', 'in', ['cancelled', 'expired'])]}" type="object" class="btn-danger"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="policyholder_id"/>
+                        <field name="product_id"/>
+                        <field name="coverage_amount"/>
+                        <field name="premium"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail.thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_insurance_policy_tree" model="ir.ui.view">
+        <field name="name">insurance.policy.tree</field>
+        <field name="model">insurance.policy</field>
+        <field name="arch" type="xml">
+            <tree string="Insurance Policies">
+                <field name="name"/>
+                <field name="policyholder_id"/>
+                <field name="product_id"/>
+                <field name="coverage_amount"/>
+                <field name="premium"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_insurance_policy_kanban" model="ir.ui.view">
+        <field name="name">insurance.policy.kanban</field>
+        <field name="model">insurance.policy</field>
+        <field name="arch" type="xml">
+            <kanban string="Insurance Policies">
+                <field name="name"/>
+                <field name="policyholder_id"/>
+                <field name="product_id"/>
+                <field name="coverage_amount"/>
+                <field name="premium"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_card">
+                            <div class="o_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <div>
+                                    <span>Policyholder: <field name="policyholder_id"/></span><br/>
+                                    <span>Product: <field name="product_id"/></span><br/>
+                                    <span>Coverage Amount: <field name="coverage_amount"/></span><br/>
+                                    <span>Premium: <field name="premium"/></span><br/>
+                                    <span>Start Date: <field name="start_date"/></span><br/>
+                                    <span>End Date: <field name="end_date"/></span><br/>
+                                    <span>Status: <field name="state"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="insurance_policy_action" model="ir.actions.act_window">
+        <field name="name">Insurance Policies</field>
+        <field name="res_model">insurance.policy</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="insurance_policy_main_menu" name="Insurance" sequence="10"/>
+    <menuitem id="insurance_policy_menu" name="Policies" parent="insurance_policy_main_menu" action="insurance_policy_action"/>
+</odoo>

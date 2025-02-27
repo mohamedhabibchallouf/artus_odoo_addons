@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_insurance_policy_user,access.insurance.policy.user,model_insurance_policy,base.group_user,1,0,0,0
+access_insurance_policy_manager,access.insurance.policy.manager,model_insurance_policy,base.group_system,1,1,1,1
+access_hiscox_case_user,access.hiscox.case.user,model_edited_hiscox_case,base.group_user,1,0,0,0
+access_hiscox_case_manager,access.hiscox.case.manager,model_edited_hiscox_case,base.group_system,1,1,1,1
+access_hiscox_configuration_user,access.hiscox.configuration.user,model_hiscox_configuration,base.group_user,1,0,0,0
+access_hiscox_configuration_manager,access.hiscox.configuration.manager,model_hiscox_configuration,base.group_system,1,1,1,1

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Policy Management Module</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Odoo 18 - Insurance Policy Management Module</h1>
+
+    <h2>Modulübersicht</h2>
+    <p>Das Insurance Policy Management Modul ermöglicht die Verwaltung von Versicherungspolicen, einschließlich der Deckungssummen und Prämien. Es bietet eine benutzerfreundliche Oberfläche zur Verwaltung von Policen und deren Status.</p>
+
+    <h2>Funktionen</h2>
+    <ul>
+        <li>Verwaltung von Versicherungspolicen mit Deckungssummen und Prämien.</li>
+        <li>Automatische Statusaktualisierung ablaufender Policen.</li>
+        <li>Listen-, Formular- und Kanban-Ansichten zur einfachen Verwaltung.</li>
+        <li>(Optional) REST API zur Verwaltung von Policen.</li>
+        <li>Integration mit Hiscox API zur Einreichung und Statusüberprüfung von Anträgen.</li>
+        <li>QR-Code-Generierung für Kundeninformationen.</li>
+    </ul>
+
+    <h2>Technische Details</h2>
+    <ul>
+        <li><strong>Odoo Version:</strong> 18</li>
+        <li><strong>Programmiersprache:</strong> Python</li>
+        <li><strong>Framework:</strong> Odoo Framework</li>
+        <li><strong>Datenbank:</strong> PostgreSQL</li>
+        <li><strong>REST API:</strong> Implementiert mit <code>http.Controller</code> für die Erstellung und Verwaltung von Policen.</li>
+        <li><strong>Modelle:</strong> <code>insurance.policy</code> für die Verwaltung von Policen und deren Attributen.</li>
+        <li><strong>Views:</strong> Unterstützt tree, form und kanban Ansichten für eine benutzerfreundliche Interaktion.</li>
+    </ul>
+
+    <h2>Benutzung</h2>
+    <p>Benutzer können Policen erstellen, aktualisieren und verwalten, ablaufende Policen überwachen und Benachrichtigungen erhalten. Die API-Schnittstelle ermöglicht die Integration mit externen Anwendungen.</p>
+
+    <h2>Installation</h2>
+    <p>Um das Modul zu installieren, kopieren Sie es in Ihr Odoo-Addons-Verzeichnis und aktivieren Sie es in den Apps.</p>
+
+</body>
+</html>
